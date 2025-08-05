@@ -1,0 +1,56 @@
+# 文件传输工具部署教程
+
+本教程将指导你在 Windows 系统下部署和使用 `file_transfer.py` 文件传输工具。
+
+## 1. 环境准备
+
+### 1.1 安装 Python
+- 推荐使用 Python 3.7 及以上版本。
+- 可在 [Python 官网](https://www.python.org/downloads/) 下载并安装。
+- 安装时请勾选“Add Python to PATH”。
+
+### 1.2 安装依赖库
+打开 PowerShell 或命令提示符，进入脚本所在目录，执行：
+
+```powershell
+pip install flask psutil werkzeug
+```
+
+## 2. 启动服务
+
+### 2.1 直接运行 Python 脚本
+在 PowerShell 或命令提示符中，进入脚本所在目录，执行：
+
+```powershell
+python file_transfer.py
+```
+
+### 2.2 使用批处理文件启动（可选）
+如果提供了 `strat_transfer.bat` 文件，双击运行即可。
+
+## 3. 使用说明
+
+### 3.1 文件上传
+- 启动后，终端会显示如下信息：
+  ```
+  📥 Upload:   http://你的IP:8001
+  📤 Download: http://你的IP:8080
+  ```
+- 在浏览器访问 `http://你的IP:8001`，即可看到上传页面。
+- 支持上传文件或粘贴文本。
+
+### 3.2 文件下载
+- 在浏览器访问 `http://你的IP:8080`，即可浏览和下载当前目录下的所有文件。
+
+## 4. 常见问题
+
+- **端口被占用**：如 8001 或 8080 端口被占用，请关闭占用程序或修改脚本端口号。
+- **局域网访问问题**：确保本机和目标设备在同一局域网，且防火墙允许 8001/8080 端口访问。
+- **依赖未安装**：如提示缺少模块，请再次运行 `pip install flask psutil werkzeug`。
+
+## 5. 其他说明
+- 上传的文件和文本会保存在脚本同级目录下。
+- 支持多平台（如 Linux/Mac），但本教程以 Windows 为例。
+
+---
+如有疑问可在 issues 区留言或联系开发者。
